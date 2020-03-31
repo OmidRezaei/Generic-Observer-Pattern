@@ -6,6 +6,7 @@ using UnityEngine;
 
 [CustomPropertyDrawer(typeof(ObservedInteger))]
 [CustomPropertyDrawer(typeof(ObservedFloat))]
+[CustomPropertyDrawer(typeof(ObservedDouble))]
 [CustomPropertyDrawer(typeof(ObservedString))]
 [CustomPropertyDrawer(typeof(ObservedBoolean))]
 [CustomPropertyDrawer(typeof(ObservedChar))]

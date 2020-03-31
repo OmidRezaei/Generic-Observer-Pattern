@@ -6,7 +6,7 @@ namespace ObserverPattern.Strcut
     [Serializable]
     public struct SubjectStruct<T> : ISubject<T>, IEquatable<T>, IEquatable<SubjectStruct<T>>
     {
-        public delegate void SubjectModification(SubjectStruct<T> subject);
+        public delegate void SubjectModifier(SubjectStruct<T> subject, ref T subjectValue);
 
         #region Subject Variables
         public bool NotifyOnGet;
@@ -58,9 +58,9 @@ namespace ObserverPattern.Strcut
         #endregion
 
         #region Subject Methods
-        public void Modify(SubjectModification ModificationMethod)
+        public void Modify(SubjectModifier ModifierMethod)
         {
-            ModificationMethod(this);
+            ModifierMethod(this, ref _value);
             NotifyObservers();
         }
 
