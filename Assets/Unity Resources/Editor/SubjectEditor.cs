@@ -41,9 +41,9 @@ public class SubjectEditor : PropertyDrawer
 
 
         var x = EditorGUIUtility.labelWidth;
-        EditorGUIUtility.labelWidth = GUI.skin.textField.CalcSize(new GUIContent("Val")).x;
+        EditorGUIUtility.labelWidth = GUI.skin.textField.CalcSize(new GUIContent("Value")).x;
 
-        EditorGUI.PropertyField(new Rect(position.x, position.y, propertyWidth, mainHeight), property.FindPropertyRelative("_value"), new GUIContent("Val"));
+        EditorGUI.PropertyField(new Rect(position.x, position.y, propertyWidth, mainHeight), property.FindPropertyRelative("_value"), new GUIContent("Value"));
         GUI.enabled = false;
         EditorGUI.PropertyField(new Rect(position.x + propertyWidth + space, position.y, propertyWidth, mainHeight), property.FindPropertyRelative("lastValue"), GUIContent.none);
         GUI.enabled = true;

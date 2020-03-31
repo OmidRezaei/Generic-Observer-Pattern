@@ -32,7 +32,9 @@ namespace ObserverPattern
         }
 
         public T lastValue;
-
+#if UNITY_2019_3_OR_NEWER
+        [UnityEngine.SerializeReference]
+#endif
         public List<IObserver<T>> observers;
         #endregion
 
