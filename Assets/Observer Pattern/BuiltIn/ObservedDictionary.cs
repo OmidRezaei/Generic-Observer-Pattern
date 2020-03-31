@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace ObserverPattern.BuiltIn
 {
+    /// <summary>
+    /// This is Still Begin Developed. Don't use unless you know what you are doing.
+    /// </summary>
     public class ObservedDictionary<KeyType, ValueType> : Subject<ValueType>
     {
         public ObservedDictionary(KeyType firstKey, ValueType firstValue, bool NotifyOnGet = false) : base(firstValue, NotifyOnGet) 

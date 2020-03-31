@@ -6,7 +6,7 @@ namespace ObserverPattern
     [Serializable]
     public class Subject<T> : ISubject<T>, IEquatable<T>, IEquatable<Subject<T>>
     {
-        public delegate void SubjectModification(Subject<T> subject);
+        public delegate void SubjectModifier(Subject<T> subject, ref T subjectValue);
 
         #region Subject Variables
         public bool NotifyOnGet = false;
@@ -14,6 +14,13 @@ namespace ObserverPattern
         [UnityEngine.SerializeField]
 #endif
         private T _value;
+        /// <summary>
+        /// Value property supports both getting and setting.
+        /// If Value is returned and "NotifyOnGet == True" then NotifyObservers() is called.
+        ///
+        /// If value is a reference type object then changing its attributes will NOT call NotifyObservers().
+        /// If you wish to call NotifyObservers() after changing the content of the value object, use Modify() instead or call NotifyObservers() manually afterwards.
+        /// </summary>
         public virtual T Value
         {
             get
@@ -58,9 +65,15 @@ namespace ObserverPattern
 
         #region Subject Methods
 
-        public void Modify(SubjectModification ModificationMethod)
+        /// <summary>
+        /// It applies modifier method on the subject and its value, then calls NotifyObservers().
+        /// NotifyOnGet will NOT affect the given "subjectValue" in the modifierMethod.
+        /// NotifyOnGet will affect "subject" object passed to modifierMethod if the "Get" method of property "Value" is called.
+        /// 
+        /// </summary>
+        public virtual void Modify(SubjectModifier modifierMethod)
         {
-            ModificationMethod(this);
+            modifierMethod(this, ref _value);
             NotifyObservers();
         }
 

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace ObserverPattern.BuiltIn
 {
+    /// <summary>
+    /// This is Still Begin Developed. Don't use unless you know what you are doing.
+    /// </summary>
     public class ObservedList<ItemType> : Subject<ItemType>
     {
         private List<ItemType> _valueList;
