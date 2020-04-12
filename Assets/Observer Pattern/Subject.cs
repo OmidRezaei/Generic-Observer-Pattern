@@ -93,6 +93,11 @@ namespace ObserverPattern
 
         #endregion
 
+        public static implicit operator T(Subject<T> subject)
+        {
+            return subject.Value;
+        }
+
         #region Equaility Operation Overrides
         public static bool operator ==(Subject<T> subject, Subject<T> subject2) => subject.Equals(subject2);
         public static bool operator !=(Subject<T> subject, Subject<T> subject2) => !subject.Equals(subject2);

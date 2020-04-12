@@ -9,5 +9,10 @@ namespace ObserverPattern.BuiltIn
         {
 
         }
+
+        public static implicit operator bool(ObservedBoolean subject)
+        {
+            return subject.Value;
+        }
     }
 }

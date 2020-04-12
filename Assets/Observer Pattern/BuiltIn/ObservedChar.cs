@@ -8,5 +8,10 @@ namespace ObserverPattern.BuiltIn
         public ObservedChar(char value, bool NotifyOnGet = false) : base(value, NotifyOnGet)
         {
         }
+
+        public static implicit operator char(ObservedChar subject)
+        {
+            return subject.Value;
+        }
     }
 }

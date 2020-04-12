@@ -35,5 +35,10 @@ namespace ObserverPattern
         public int CompareTo(ComparableSubject<T> other) => CompareTo(other.Value);
         public int CompareTo(T other) => Value.CompareTo(other);
         #endregion
+
+        public static implicit operator T(ComparableSubject<T> subject)
+        {
+            return subject.Value;
+        }
     }
 }

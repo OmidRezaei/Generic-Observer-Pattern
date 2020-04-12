@@ -8,5 +8,10 @@ namespace ObserverPattern.BuiltIn
         public ObservedDouble(double value = 0, bool NotifyOnGet = false) : base(value, NotifyOnGet)
         {
         }
+
+        public static implicit operator double(ObservedDouble subject)
+        {
+            return subject.Value;
+        }
     }
 }

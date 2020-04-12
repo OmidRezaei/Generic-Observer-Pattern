@@ -9,5 +9,10 @@ namespace ObserverPattern.BuiltIn
         {
 
         }
+
+        public static implicit operator string(ObservedString subject)
+        {
+            return subject.Value;
+        }
     }
 }
